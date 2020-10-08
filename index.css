@@ -1,0 +1,56 @@
+html {
+    background-image: url(https://media.playstation.com/is/image/SCEA/ps4-systems-fortnite-bundle-banner-01-us-26jul19?$native_nt$);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.locker {
+    position: absolute;
+    margin: 0;
+    position: absolute;
+    vertical-align: middle;
+    top: 43%;
+    left: 16%;
+    transform: translate(-50%, -50%);
+}
+
+.locker > div {
+    width: 113px;
+    height: 140px;
+    background-image: url(https://media.playstation.com/is/image/SCEA/ps4-systems-fortnite-bundle-banner-01-us-26jul19?$native_nt$);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.locker > div > div:nth-of-type(1) {
+    width: 95%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+.locker img {
+    width: 140px;
+    position: absolute;
+    left: -15px;
+    transition: 0.2s;
+}
+
+.locker > div > div:nth-of-type(2) {
+    width: 100%;
+    background: gray;
+    height: 100%;
+    position: relative;
+    top: 109px;
+    transform: rotate(85deg);
+    border-left: 2px solid darkgray;
+    transition: 0.2s;
+    opacity: 0.8;
+}
+
+.locker > div:active {
+    background: white;
+}
