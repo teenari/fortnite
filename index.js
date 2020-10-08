@@ -5,7 +5,9 @@ class BenBot {
     }
 
     async benbot(endpoint, parms) {
-        return await fetch(`${this.url}/${endpoint}?${parms}`);
+        return await fetch(`${this.url}/${endpoint}?${parms}`, {
+            mode: 'no-cors'
+        });
     }
 
     async assetProperties(parms) {
