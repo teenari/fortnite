@@ -1,25 +1,21 @@
 class Locker {
-    constructor(version) {
+    constructor() {
         this.cosmetics = null;
     }
 
     async set() {
-        this.cosmetics = 
+        this.cosmetics = await this.getCosmetics();
     }
 
     async getCosmetics() {
-        return (await fetch('//blobry.herokuapp.com/api/cosmetics'))
-    }
-
-    async getCardColor(card) {
-        const request = await this.benbot.getCard(card);
-        console.log(request);
+        return await (await fetch('//blobry.herokuapp.com/api/cosmetics')).json();
     }
 }
 
+const locker = new Locker();
+
 $(document).ready(async () => {
-    const locker = new Locker(1);
-    await locker.getCardColor('LavaSeries');
+    await locker.set();
     $('.locker').children('div').hover((e) => {
         const target = e.currentTarget;
        target.children[0].children[0].style.width = '165px';
