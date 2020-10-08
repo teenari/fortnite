@@ -10,6 +10,17 @@ class Locker {
     async getCosmetics() {
         return await (await fetch('//blobry.herokuapp.com/api/cosmetics')).json();
     }
+
+    setSkin(item) {
+        const skin = $('#skin');
+        skin.children()[0].children[0].src = item.images.icon;
+        if(item.series && item.series.image) {
+            const image = item.series.image;
+            const rgba = item.series.VectorParameterValues;
+            skin.css('background-image', `url(${image})`);
+        }
+        // $('#skin').children().eq(1).css()
+    }
 }
 
 const locker = new Locker();
