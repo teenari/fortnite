@@ -1,28 +1,14 @@
-class BenBot {
-    constructor(version) {
-        this.version = version;
-        this.url = `https://benbotfn.tk/api/v${version}`;
-    }
-
-    async benbot(endpoint, parms) {
-        return await fetch(`${this.url}/${endpoint}?${parms}`, {
-            mode: 'no-cors'
-        });
-    }
-
-    async assetProperties(parms) {
-        return await this.benbot('assetProperties', parms);
-    }
-
-    async getCard(card, json) {
-        const request = await this.assetProperties(`path=FortniteGame/Content/Athena/UI/Frontend/CosmeticItemCard/Materials/M_UI_ItemCard_V2_${card}.uasset`);
-        return json ? await request.json() : request;
-    }
-}
-
 class Locker {
     constructor(version) {
-        this.benbot = new BenBot(version);
+        this.cosmetics = null;
+    }
+
+    async set() {
+        this.cosmetics = 
+    }
+
+    async getCosmetics() {
+        return (await fetch('//blobry.herokuapp.com/api/cosmetics'))
     }
 
     async getCardColor(card) {
