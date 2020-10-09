@@ -28,8 +28,12 @@ class Locker {
         skin.children().eq(1).css('background', '');
         if(item.series && item.series.image) {
             const image = item.series.image;
-            skin.children().eq(1).css('background', `url("${image}") center top`);
-            skin.css('background-image', `url(${image})`);
+            const VectorParameterValues = item.series.VectorParameterValues;
+            if(VectorParameterValues[0]) {
+                skin.children().eq(1).css('background', VectorParameterValues[0].Hex);
+                skin.css('background', `linear-gradient(350deg, rgba(${VectorParameterValues[1].R},${VectorParameterValues[1].G},${VectorParameterValues[1].B},${VectorParameterValues[1].A}) 0%, rgba(${VectorParameterValues[0].R},${VectorParameterValues[0].G},${VectorParameterValues[0].B},${VectorParameterValues[0].A}) 100%)`);
+                console.log(VectorParameterValues)
+            }
         }
         return this;
     }
@@ -44,7 +48,7 @@ $(document).ready(async () => {
         const target = e.currentTarget;
        target.children[0].children[0].style.width = '165px';
        target.children[0].children[0].style.left = '-31px';
-       target.children[1].style.top = '118px';
+       target.children[1].style.top = '123px';
     }, (e) => {
         const target = e.currentTarget;
         target.children[0].children[0].style.width = '';
