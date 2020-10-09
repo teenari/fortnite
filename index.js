@@ -8,7 +8,7 @@ class Locker {
     }
 
     async getCosmetics() {
-        const cosmetics = (await (await fetch('//blobry.herokuapp.com/api/cosmetics')).json()).data;
+        const cosmetics = (await (await fetch('http://localhost:300/api/cosmetics')).json()).data;
         const data = {
             all: cosmetics
         };
@@ -22,14 +22,18 @@ class Locker {
     }
 
     setSkin(item) {
+        function adjust(color, amount) {
+            return '#' + color.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
+        }
         const skin = $('#skin');
         skin.children()[0].children[0].src = item.images.icon;
         skin.children().eq(1).css('background', '');
         if(item.series && item.series.image) {
             const VectorParameterValues = item.series.VectorParameterValues;
+            const background = adjust(VectorParameterValues[0].Hex, -40);
             if(VectorParameterValues[0]) {
                 skin.children().eq(1).css('background', VectorParameterValues[0].Hex);
-                skin.css('background', `linear-gradient(350deg, rgba(${VectorParameterValues[1].R},${VectorParameterValues[1].G},${VectorParameterValues[1].B},${VectorParameterValues[1].A}) 0%, rgba(${VectorParameterValues[0].R},${VectorParameterValues[0].G},${VectorParameterValues[0].B},${VectorParameterValues[0].A}) 100%)`);
+                skin.css('background', background);
             }
         }
         return this;
@@ -40,7 +44,6 @@ const locker = new Locker();
 
 $(document).ready(async () => {
     await locker.set();
-    locker.setSkin(locker.cosmetics['outfit-series'][42]);
     $('.locker').children('div').hover((e) => {
         const target = e.currentTarget;
        target.children[0].children[0].style.width = '165px';

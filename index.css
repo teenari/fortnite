@@ -3,6 +3,7 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
+    font-family: t;
 }
 
 .locker {
@@ -52,4 +53,43 @@ html {
 
 .locker > div:active {
     background: white;
+}
+
+.tabs {
+    height: 9%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    display: flex;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 153%;
+    word-spacing: 47.2px;
+}
+
+.tabs > div {
+    padding: 10px;
+    margin: 10px;
+    width: fit-content;
+    position: relative;
+    transition: 0.2s;
+}
+
+.tab-selected {
+    background: white;
+    transform: skew(0deg, -2deg);
+    color: #1E206B;
+}
+
+.tab-selected:hover {
+    background: none;
+    color: white;
+}
+
+@font-face {
+    font-family: t;
+    src: url(./fonts/BurbankBigCondensed-Black.otf);
 }
