@@ -28,7 +28,7 @@ class Locker {
         skin.children().eq(1).css('background', '');
         if(item.series && item.series.image) {
             const image = item.series.image;
-            skin.children().eq(1).css('background', `url("${skin.series.image}") center top`);
+            skin.children().eq(1).css('background', `url("${image}") center top`);
             skin.css('background-image', `url(${image})`);
         }
         return this;
