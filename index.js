@@ -34,6 +34,9 @@ class Locker {
                 skin.children().eq(1).css('border-left', `2px solid ${adjust(VectorParameterValues[0].Hex, 50)}`);
             }
         }
+        else {
+            console.log(item)
+        }
         locker.itemEvent();
         return this;
     }
@@ -57,9 +60,10 @@ class Locker {
 const locker = new Locker();
 
 $(document).ready(async () => {
+    console.log(await $.getJSON('RarityData.json'))
     await locker.set();
     locker.itemEvent();
-    for (const item of locker.cosmetics['outfit-series']) {
+    for (const item of locker.cosmetics.outfit) {
         await new Promise((resolve) => setTimeout(resolve, 3000));
         await locker.setSkin(item);
     }
