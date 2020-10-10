@@ -31,6 +31,7 @@ class Locker {
             const VectorParameterValues = item.series.VectorParameterValues;
             if(VectorParameterValues[0]) {
                 skin.children().eq(1).css('background', VectorParameterValues[0].Hex);
+                skin.children().eq(1).css('border-left', `2px solid ${adjust(VectorParameterValues[0].Hex, 50)}`);
             }
         }
         locker.itemEvent();
@@ -40,8 +41,8 @@ class Locker {
     itemEvent() {
         $('.item').children('div').hover((e) => {
             const target = e.currentTarget.parentElement;
-            target.children[0].children[0].style.width = '165px';
-            target.children[0].children[0].style.left = '-31px';
+            target.children[0].children[0].style.width = '155px';
+            target.children[0].children[0].style.left = '-21px';
             target.children[1].style.top = '123px';
         }, (e) => {
              const target = e.currentTarget.parentElement;
