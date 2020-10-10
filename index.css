@@ -43,11 +43,11 @@ html {
 
 .item > div:nth-of-type(2) {
     width: 100%;
-    background: gray;
-    border-left: 2px solid darkgray;
+    background: rgb(177, 177, 177);
+    border-left: 2px solid rgb(171, 183, 192);
     height: 100%;
     position: relative;
-    top: 118px;
+    top: 114px;
     transform: rotate(85deg);
     transition: 0.2s;
     opacity: 0.8;
