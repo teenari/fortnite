@@ -8,7 +8,7 @@ class Locker {
     }
 
     async getCosmetics() {
-        const cosmetics = (await (await fetch('http://localhost:300/api/cosmetics')).json()).data;
+        const cosmetics = (await (await fetch('http://blobry.herokuapp.com/api/cosmetics')).json()).data;
         const data = {
             all: cosmetics
         };
