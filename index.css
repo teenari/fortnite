@@ -4,6 +4,7 @@ html {
     background-size: cover;
     height: 100%;
     font-family: t;
+    overflow: hidden;
 }
 
 .locker {
@@ -87,6 +88,51 @@ html {
 .tab-selected:hover {
     background: none;
     color: white;
+}
+
+.edit-locker {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    align-items: center;
+    background: #265CA2;
+    z-index: 1;
+}
+
+.edit-locker-bar {
+    width: 823px;
+    height: 55px;
+    position: absolute;
+    top: 12%;
+    z-index: 2;
+    left: -35%;
+    transform: skew(0deg, 3deg);
+    background-color: #265CA2;
+}
+
+.edit-locker-type {
+    color: white;
+    font-style: italic;
+    font-size: 58px;
+    position: absolute;
+    top: 6%;
+    background: #265CA2;
+    left: 7%;
+    z-index: 11;
+}
+
+.edit-locker-background {
+    width: 173%;
+    height: 80%;
+    position: absolute;
+    top: 20%;
+    background-image: url(https://media.playstation.com/is/image/SCEA/ps4-systems-fortnite-bundle-banner-01-us-26jul19?$native_nt$);
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -502px;
 }
 
 @font-face {
