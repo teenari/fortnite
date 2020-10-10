@@ -27,15 +27,28 @@ class Locker {
         }
         const skin = $('#skin');
         skin.children()[0].children[0].src = item.images.icon;
-        skin.children().eq(1).css('background', '');
-        if(item.series && item.series.image) {
+        if(item.series) {
             const VectorParameterValues = item.series.VectorParameterValues;
-            const background = adjust(VectorParameterValues[0].Hex, -40);
             if(VectorParameterValues[0]) {
                 skin.children().eq(1).css('background', VectorParameterValues[0].Hex);
-                skin.css('background', background);
             }
         }
+        locker.itemEvent();
+        return this;
+    }
+
+    itemEvent() {
+        $('.item').children('div').hover((e) => {
+            const target = e.currentTarget.parentElement;
+            target.children[0].children[0].style.width = '165px';
+            target.children[0].children[0].style.left = '-31px';
+            target.children[1].style.top = '123px';
+        }, (e) => {
+             const target = e.currentTarget.parentElement;
+             target.children[0].children[0].style.width = '';
+             target.children[0].children[0].style.left = '';
+             target.children[1].style.top = '';
+        });
         return this;
     }
 }
@@ -44,15 +57,9 @@ const locker = new Locker();
 
 $(document).ready(async () => {
     await locker.set();
-    $('.locker').children('div').hover((e) => {
-        const target = e.currentTarget;
-       target.children[0].children[0].style.width = '165px';
-       target.children[0].children[0].style.left = '-31px';
-       target.children[1].style.top = '123px';
-    }, (e) => {
-        const target = e.currentTarget;
-        target.children[0].children[0].style.width = '';
-        target.children[0].children[0].style.left = '';
-       target.children[1].style.top = '';
-    });
+    locker.itemEvent();
+    for (const item of locker.cosmetics['outfit-series']) {
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await locker.setSkin(item);
+    }
 });

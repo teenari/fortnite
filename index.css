@@ -17,7 +17,7 @@ html {
     transform: translate(-50%, -50%);
 }
 
-.locker > div {
+.item {
     width: 113px;
     height: 140px;
     background-image: url(https://media.playstation.com/is/image/SCEA/ps4-systems-fortnite-bundle-banner-01-us-26jul19?$native_nt$);
@@ -27,21 +27,21 @@ html {
     transition: 0.2s;
 }
 
-.locker > div > div:nth-of-type(1) {
+.item > div:nth-of-type(1) {
     width: 100%;
     height: 100%;
     position: absolute;
     overflow: hidden;
 }
 
-.locker img {
+.item img {
     width: 140px;
     position: absolute;
     left: -15px;
     transition: 0.2s;
 }
 
-.locker > div > div:nth-of-type(2) {
+.item > div:nth-of-type(2) {
     width: 100%;
     background: gray;
     height: 100%;
@@ -52,7 +52,7 @@ html {
     opacity: 0.8;
 }
 
-.locker > div:active {
+.item > div:active {
     background: white;
 }
 
@@ -101,7 +101,7 @@ html {
     z-index: 1;
 }
 
-.edit-locker-bar {
+.edit-locker > div:nth-of-type(1) {
     width: 823px;
     height: 55px;
     position: absolute;
@@ -112,7 +112,7 @@ html {
     background-color: #265CA2;
 }
 
-.edit-locker-type {
+.edit-locker > div:nth-of-type(2) {
     color: white;
     font-style: italic;
     font-size: 58px;
@@ -123,16 +123,52 @@ html {
     z-index: 11;
 }
 
-.edit-locker-background {
-    width: 173%;
+.edit-locker > div:nth-of-type(3) {
+    text-align: center;
+    width: 100%;
     height: 80%;
     position: absolute;
     top: 20%;
     background-image: url(https://media.playstation.com/is/image/SCEA/ps4-systems-fortnite-bundle-banner-01-us-26jul19?$native_nt$);
     z-index: 1;
+    background-size: cover;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-locker > div:nth-of-type(3) > div:nth-of-type(1) {
+    width: 545px;
+    height: 409px;
+    background-image: url(https://media.playstation.com/is/image/SCEA/ps4-systems-fortnite-bundle-banner-01-us-26jul19?$native_nt$);
+    background-size: cover;
+    background-position: -493px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-locker > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) {
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: -502px;
+    overflow: hidden;
+    transition: 0.2s;
+    margin: 15px;
+    width: 100%;
+    vertical-align: top;
+    height: 100%;
+    display: flex;
+    flex-grow: 0;
+}
+
+.edit-locker > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div {
+    margin: 12px;
+}
+
+.edit-locker > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) {
+    width: 113px;
+    height: 140px;
 }
 
 @font-face {
